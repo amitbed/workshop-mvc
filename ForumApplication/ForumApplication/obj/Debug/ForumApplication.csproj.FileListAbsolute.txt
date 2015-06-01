@@ -157,3 +157,4 @@ C:\Users\Amit\Documents\GitHub\workshop-mvc\ForumApplication\ForumApplication\bi
 C:\Users\Amit\Documents\GitHub\workshop-mvc\ForumApplication\ForumApplication\bin\ru\System.Spatial.resources.dll
 C:\Users\Amit\Documents\GitHub\workshop-mvc\ForumApplication\ForumApplication\bin\zh-Hans\System.Spatial.resources.dll
 C:\Users\Amit\Documents\GitHub\workshop-mvc\ForumApplication\ForumApplication\bin\zh-Hant\System.Spatial.resources.dll
+C:\Users\Amit\Documents\GitHub\workshop-mvc\ForumApplication\ForumApplication\obj\Debug\ForumApplication.csprojResolveAssemblyReference.cache

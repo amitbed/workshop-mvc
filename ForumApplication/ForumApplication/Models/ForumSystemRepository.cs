@@ -62,7 +62,7 @@ namespace ForumApplication.Models
         {
             var context = new ForumDBContext();
             var query = from mem in context.Members where mem.Username == username select mem;
-            var member = query.First();
+            var member = query.FirstOrDefault();
             return (member != null);
         }
 
