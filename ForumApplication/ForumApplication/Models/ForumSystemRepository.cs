@@ -65,11 +65,11 @@ namespace ForumApplication.Models
             context.SaveChanges();
         }
 
-        public void dbRemoveMember(string memberID)
+        public void dbRemoveMember(string username)
         {
             var context = new ForumDBContext();
             var member = (from m in context.Members
-                          where m.ID == memberID
+                          where m.Username == username
                           select m).FirstOrDefault();
             context.Members.Remove(member);
             context.SaveChanges();

@@ -77,3 +77,4 @@ C:\Users\Amit\Documents\university\שנה ג\סמסטר ו\סדנא\mvc3\ForumAp
 C:\Users\Amit\Documents\university\שנה ג\סמסטר ו\סדנא\mvc3\ForumApplication\ForumApplication\bin\zh-Hant\System.Spatial.resources.dll
 C:\Users\Amit\Documents\university\שנה ג\סמסטר ו\סדנא\mvc3\ForumApplication\ForumApplication\obj\Debug\ForumApplication.dll
 C:\Users\Amit\Documents\university\שנה ג\סמסטר ו\סדנא\mvc3\ForumApplication\ForumApplication\obj\Debug\ForumApplication.pdb
+C:\Users\Amit\Documents\university\שנה ג\סמסטר ו\סדנא\mvc3\ForumApplication\ForumApplication\obj\Debug\ForumApplication.csprojResolveAssemblyReference.cache

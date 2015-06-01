@@ -17,6 +17,7 @@ namespace ForumApplication.Models
         public Regex PassLimitation { get; set; }
         private long TimeToUpgrade { get; set; }
         private long MessagesToUpgrade { get; set; }
+        private ForumSystemRepository repository;
 
         //Constructor
         private ForumSystem()
@@ -28,14 +29,14 @@ namespace ForumApplication.Models
             Logger.logDebug(string.Format("A new forum system has been created"));
             var DailyTime = "00:00:00";
             var timeParts = DailyTime.Split(new char[1] { ';' });
-          /*  using (var db = new ForumDBContext())
+        /*    using (var db = new ForumDBContext())
             {
                 ForumSystemRepository repository = new ForumSystemRepository();
                 Member member = new Member("username", "password", "email@email.com");
                 repository.dbAddMember(member);
                 repository.dbRemoveMember("member1");
             }*/
-            Database.SetInitializer(new ForumDBContext.Initializer());
+             repository = new ForumSystemRepository();
         }
 
 
@@ -125,8 +126,9 @@ namespace ForumApplication.Models
                 }
                 else
                 {
-                    Members.Add(toAdd.Username, toAdd);
-                    Logger.logDebug(String.Format("A new member has been added. ID: {0}, username: {1}, password: {2}, email: {3}", toAdd.ID, username, password, email));
+                    repository.dbAddMember(toAdd);
+                  //  Members.Add(toAdd.Username, toAdd);
+                    Logger.logDebug(String.Format("A new member has been added. username: {0}, password: {1}, email: {2}", toAdd.Username, password, email));
                     return toAdd;
                 }
             }
@@ -188,12 +190,12 @@ namespace ForumApplication.Models
                 {
                     if (member.MyForums.Contains(forumToEnter.ID))
                     {
-                        Logger.logDebug(String.Format("{0} enterd to forum {1} as Admin", member.ID, forumName));
+                        Logger.logDebug(String.Format("{0} enterd to forum {1} as Admin", member.Username, forumName));
                         return forumSystem.AdminsForums[forumName];
                     }
                     else
                     {
-                        Logger.logDebug(String.Format("{0} enterd to forum {1} as guest", member.ID, forumName));
+                        Logger.logDebug(String.Format("{0} enterd to forum {1} as guest", member.Username, forumName));
                         return forumToEnter;
                     }
                 }

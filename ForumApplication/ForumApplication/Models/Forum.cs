@@ -87,20 +87,20 @@ namespace ForumApplication.Models
                     if (user.GetType().Name.Equals("Member"))
                     {
                         Member newUser = (Member)user;
-                        if (subForumToEnter.Moderators.Contains(newUser.ID))
+                        if (subForumToEnter.Moderators.Contains(newUser.Username))
                         {
-                            Logger.logDebug(String.Format("{0} enterd to sub forum {1} as moderator", this.ID, subForumName));
+                            Logger.logDebug(String.Format("{0} enterd to sub forum {1} as moderator", newUser.Username, subForumName));
                             return ModeratorSubForums[subForumName];
                         }
                         else
                         {
-                            Logger.logDebug(String.Format("{0} enterd to sub forum {1} as member", this.ID, subForumName));
+                            Logger.logDebug(String.Format("{0} enterd to sub forum {1} as member", newUser.Username, subForumName));
                             return MemberSubForums[subForumName];
                         }
                     }
                     else
                     {
-                        Logger.logDebug(String.Format("{0} enterd to sub forum {1} as guest", this.ID, subForumName));
+                        Logger.logDebug(String.Format("guest has enterd to sub forum {1}", subForumName));
                         return subForumToEnter;
                     }
                 }

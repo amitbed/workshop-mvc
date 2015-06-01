@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ namespace ForumApplication.Models
 {
     public class Member : User, IMemeberManager
     {
+        [Key]
         public string Username { get; set; }
         public string Email { get; set; }
         private bool isActive;
@@ -61,7 +63,7 @@ namespace ForumApplication.Models
                 this.NumOfPublishedMessages = 0;
                 this.oldPasswords = new List<string>();
                 this.PasswordQuestion = new Dictionary<string, string>();
-                Logger.logDebug(String.Format("A new user has been created.username: {0}, password: {1}, email: {3}", Username, Password, emailAddress));
+                Logger.logDebug(String.Format("A new user has been created. username: {0}, password: {1}, email: {2}", Username, Password, emailAddress));
             }
         }
 

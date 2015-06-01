@@ -14,7 +14,7 @@ namespace ForumApplication.Models
         {
             //approveEmail()
             Member added= forumSystem.addMember(username, password, email);
-            return added.ID;
+            return added.Username;
         }
 
         private bool validateUsername(string username)
@@ -56,12 +56,12 @@ namespace ForumApplication.Models
                     Member member = forumSystem.Members[username];
                     if (String.Equals(username, member.Username) && String.Equals(password, member.Password))
                     {
-                        Logger.logDebug(String.Format("Member: ID:{0} usernamer:{1} has logged in", member.ID, member.Username));
+                        Logger.logDebug(String.Format("Member: usernamer:{1} has logged in", member.Username));
                         return forumSystem.displayForums();
                     }
                     else
                     {
-                        Logger.logDebug(String.Format("Username: {0}, password{1} failed to log in. Reason: member not found"));
+                        Logger.logDebug(String.Format("Username: {0}, password{1} failed to log in. Reason: member not found", username, password));
                         return null;
                     }
                 }
