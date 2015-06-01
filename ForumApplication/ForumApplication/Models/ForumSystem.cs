@@ -18,6 +18,8 @@ namespace ForumApplication.Models
         private long TimeToUpgrade { get; set; }
         private long MessagesToUpgrade { get; set; }
         private ForumSystemRepository repository;
+        private ForumSystemRepository prodRepository;
+        private ForumSystemRepository testRepository;
 
         //Constructor
         private ForumSystem()
@@ -36,8 +38,9 @@ namespace ForumApplication.Models
                 repository.dbAddMember(member);
                 repository.dbRemoveMember("member1");
             }*/
-             repository = new ForumSystemRepository();
-             repository.dbIsMemberExists("ggg");
+             prodRepository = new ForumSystemRepository();
+             testRepository = new ForumSystemRepository("TestForumDBContext");
+            //repository.dbIsMemberExists("ggg");
         }
 
 
@@ -127,7 +130,7 @@ namespace ForumApplication.Models
                 }
                 else
                 {
-                    repository.dbAddMember(toAdd);
+                  //  repository.dbAddMember(toAdd);
                   //  Members.Add(toAdd.Username, toAdd);
                     Logger.logDebug(String.Format("A new member has been added. username: {0}, password: {1}, email: {2}", toAdd.Username, password, email));
                     return toAdd;

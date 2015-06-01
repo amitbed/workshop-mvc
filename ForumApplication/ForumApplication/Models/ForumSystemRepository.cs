@@ -8,6 +8,25 @@ namespace ForumApplication.Models
 {
     public class ForumSystemRepository :IQueries
     {
+        public ForumSystemRepository()
+        {
+            //var context = new ForumDBContext();
+            string username = "dean";
+            var context = new ForumDBContext();
+            var query = from mem in context.Members where mem.Username == username select mem;
+            var member = query.FirstOrDefault();
+        }
+
+        public ForumSystemRepository(string connectionString)
+        {
+            var db = new ForumDBContext();
+            string username = "dean";
+            // Uses it just before any other execution.
+            db.ChangeDatabaseTo(connectionString);
+            var query = from mem in db.Members where mem.Username == username select mem;
+            var member = query.FirstOrDefault();
+        }
+        
         /*public void dbRetrieveLastID()
         {
             if

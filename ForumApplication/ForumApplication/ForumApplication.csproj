@@ -192,6 +192,7 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\AdminForum.cs" />
+    <Compile Include="Models\ConnectionStringExtension.cs" />
     <Compile Include="Models\Forum.cs" />
     <Compile Include="Models\ForumDBContext.cs" />
     <Compile Include="Models\ForumSystem.cs" />
