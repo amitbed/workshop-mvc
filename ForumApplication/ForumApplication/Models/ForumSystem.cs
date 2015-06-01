@@ -37,6 +37,7 @@ namespace ForumApplication.Models
                 repository.dbRemoveMember("member1");
             }*/
              repository = new ForumSystemRepository();
+             repository.dbIsMemberExists("sagi");
         }
 
 

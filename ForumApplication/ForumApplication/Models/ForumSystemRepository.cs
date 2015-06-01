@@ -17,11 +17,11 @@ namespace ForumApplication.Models
 
 
         //Forums
-        public List<Forum> getForums()
-        {
-            ForumDBContext fdbc = new ForumDBContext();
-            return fdbc.Forums.ToList();
-        }
+        //public List<Forum> getForums()
+        //{
+        //    ForumDBContext fdbc = new ForumDBContext();
+        //    return fdbc.Forums.ToList();
+        //}
 
         //Messages
         //public List<Message> dbGetMessages()
@@ -50,12 +50,20 @@ namespace ForumApplication.Models
         }
 
         //Members
-        public List<Member> dbGetMembers()
+        //public List<Member> dbGetMembers()
+        //{
+        //    var context = new ForumDBContext();
+        //    var query = from member in context.Members select member;
+        //    var members = query.ToList();
+        //    return members;
+        //}
+
+        public bool dbIsMemberExists(string username)
         {
             var context = new ForumDBContext();
-            var query = from member in context.Members select member;
-            var members = query.ToList();
-            return members;
+            var query = from mem in context.Members where mem.Username == username select mem;
+            var member = query.First();
+            return (member != null);
         }
 
         public void dbAddMember(Member member)
